@@ -20,11 +20,16 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://practice-ecom-frontend.vercel.app"
+      "https://practice-ecom-frontend.vercel.app",
     ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    exposedHeaders: ["set-cookie"], // 🔥 THIS IS REQUIRED!
   })
 );
+
+
 
 const connectDB = async () => {
   try {

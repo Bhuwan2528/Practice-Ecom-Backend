@@ -17,8 +17,11 @@ app.use(cookieParser());
 // CORS setup to allow cookies
 app.use(
   cors({
-    origin: "http://localhost:5173", // <-- your frontend URL (if using Vite)
-    credentials: true, // allow cookies
+    origin: [
+      "http://localhost:5173",
+      "https://practice-ecom-frontend.vercel.app/"  // add this later
+    ],
+    credentials: true,
   })
 );
 
@@ -43,4 +46,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/metrics", metricsRoutes);
 
 
-app.listen(5000, () => console.log("✅ Server running on port 5000"));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));

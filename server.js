@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://practice-ecom-frontend.vercel.app/"  // add this later
+      "https://practice-ecom-frontend.vercel.app"
     ],
     credentials: true,
   })
